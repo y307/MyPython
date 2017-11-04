@@ -1,0 +1,68 @@
+# !/usr/bin/python3
+# coding: utf8
+
+
+import os
+
+
+hexDict = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5,
+        '6': 6, '7': 7, '8': 8, '9': 9, 'A': 10, 'B': 11,
+        'C': 12, 'D': 13, 'E': 14, 'F': 15}
+
+testStr = '0123456789ABCDEF'
+
+
+# quoted-printable to unicode
+def convert_qp(code_in):
+    if code_in == '':
+        return ''
+    else:
+        # code = 16 * hexS.find(code_in[0], 0) + hexS.find(code_in[1], 0)
+        code = 16 * hexDict[code_in[0]] + hexDict[code_in[1]]
+        return chr(code)
+# convert_qp ======================================================================
+
+
+def new_file_name(aname):
+    with open(aname, 'r') as fin:
+        for line in fin.readlines():
+            res = line.find('QUOTED-PRINTABLE:', 0)
+            if (res > -1) & (line[0:2] == 'N;'):
+                res2 = line.find(':=', res)
+                if res2 > -1:
+                    name = ''
+                    buf = ''
+                    pos = res2 + 1
+                    # ==============================================
+                    while pos < len(line):
+                        if line[pos] == '=':
+                            pos += 1
+                            if (line[pos] in testStr) & (line[pos+1] in testStr):
+                                buf = line[pos:(pos+2)]
+                                pos += 2
+                                name += convert_qp(buf)
+                                # print(buf)
+                        else:
+                            pos += 1
+                    # while =======
+                    # перекодировка
+                    name = name.encode('latin1').decode('utf8')
+                    return name
+        # for =======
+        return ''
+# new_file_name =======
+
+
+files = os.listdir('.')
+for file in files:
+    if '.' == file[0]:
+        continue
+    if file.endswith('.vcf'):
+        new_name = new_file_name(file)
+        pos = new_name.find(',')
+        if pos > 0:
+            new_name = new_name[:pos]
+        pos = new_name.find(' ')
+        if pos > 0:
+            new_name = new_name[:pos]
+        print(new_name)
