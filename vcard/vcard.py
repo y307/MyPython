@@ -5,9 +5,11 @@
 import os
 
 
+'''
 hexDict = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5,
         '6': 6, '7': 7, '8': 8, '9': 9, 'A': 10, 'B': 11,
         'C': 12, 'D': 13, 'E': 14, 'F': 15}
+'''
 
 testStr = '0123456789ABCDEF'
 
@@ -17,8 +19,8 @@ def convert_qp(code_in):
     if code_in == '':
         return ''
     else:
-        # code = 16 * hexS.find(code_in[0], 0) + hexS.find(code_in[1], 0)
-        code = 16 * hexDict[code_in[0]] + hexDict[code_in[1]]
+        code = 16 * testStr.find(code_in[0], 0) + testStr.find(code_in[1], 0)
+        # code = 16 * hexDict[code_in[0]] + hexDict[code_in[1]]
         return chr(code)
 # convert_qp ======================================================================
 
