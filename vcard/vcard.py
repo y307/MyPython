@@ -14,39 +14,21 @@ hexDict = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5,
 testStr = '0123456789ABCDEF'
 
 
-# quoted-printable to unicode
-def convert_qp(code_in):
-    if code_in == '':
-        return ''
-    else:
-        code = 16 * testStr.find(code_in[0], 0) + testStr.find(code_in[1], 0)
-        # code = 16 * hexDict[code_in[0]] + hexDict[code_in[1]]
-        return chr(code)
-# convert_qp ======================================================================
-
-
 def new_file_name(aname):
     with open(aname, 'r') as fin:
         for line in fin.readlines():
-            res = line.find('QUOTED-PRINTABLE:', 0)
-            if (res > -1) & (line[0:2] == 'N;'):
-                res2 = line.find(':=', res)
-                if res2 > -1:
+            # res = line.find('QUOTED-PRINTABLE:', 0)
+            if line[0:2] == 'N;':
+                res = line.find(':=')
+                if res > -1:
                     name = ''
-                    buf = ''
-                    pos = res2 + 1
-                    # ==============================================
-                    while pos < len(line):
-                        if line[pos] == '=':
-                            pos += 1
-                            if (line[pos] in testStr) & (line[pos+1] in testStr):
-                                buf = line[pos:(pos+2)]
-                                pos += 2
-                                name += convert_qp(buf)
-                                # print(buf)
+                    # decode QUOTED-PRINTABLE
+                    list_buf = line[(res+1):].split('=')
+                    for ch in list_buf:
+                        if ch == '':
+                            continue
                         else:
-                            pos += 1
-                    # while =======
+                            name += chr(16*testStr.find(ch[0])+testStr.find(ch[1]))
                     # перекодировка
                     name = name.encode('latin1').decode('utf8')
                     return name
