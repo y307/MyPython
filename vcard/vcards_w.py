@@ -43,16 +43,17 @@ def get_new_filename(a_line):
 
 def do_file():
     file_name = entry_path.get()
-    folder = os.path.split(file_name)
+    list_paths = os.path.split(file_name)
     num = 1
     with open(file_name, 'r') as fin:
         for line in fin.readlines():
             # print(line)
             if line == 'BEGIN:VCARD\n':  # начало блока
-                new_path = os.path.join(str(folder), 't'+str(num)+'.vcf')
+                t_name = 't'+str(num)+'.vcf'
+                new_path = os.path.join(list_paths[0], t_name)
                 new_name = ''
-                fout = open(new_path, 'w')
-                fout.write(line)
+                f_out = open(new_path, 'w')
+                f_out.write(line)
                 for line_next in fin.readline():
                     # list_buf = line_next.split(line_next, ';')
                     if line_next[0:2] == 'N;':  # строка с именем
@@ -60,9 +61,9 @@ def do_file():
                         if res > -1:
                             new_name = get_new_filename(line_next[1:])
                     else:
-                        fout.write(line_next)
+                        f_out.write(line_next)
                         if line_next == 'END:VCARD':
-                            fout.close()
+                            f_out.close()
                             break
                 # for
                 if new_name == '':
