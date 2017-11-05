@@ -2,6 +2,7 @@
 
 from tkinter import *
 from tkinter.filedialog import askopenfilename
+import os.path
 
 
 root = Tk()
@@ -23,11 +24,14 @@ entry_path.place(x=10, y=37, width=280)
 
 
 def do_file():
-    folder =
-    with open(entry_path.get(), 'r') as fin:
+    file_name = entry_path.get()
+    folder = os.path.split(file_name)
+    with open(file_name, 'r') as fin:
         for line in fin.readline():
             if line == 'BEGIN:VCARD':
-                open('')
+                new_path = os.path.join(folder, 'tmp.vcf')
+                with open(new_path, 'w') as fout:
+                    fout.write(line)
 
 
 
