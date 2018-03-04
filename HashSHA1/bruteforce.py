@@ -15,46 +15,46 @@ from hashlib import sha1
 line = "----------------------------------"
 
 try:
-	# hashAlgr, fileHash, fileDict = argv[1], argv[2], argv[3]
-	hashAlgr = "sha1"
-	fileHash = "hash.txt"
-	fileDict = "rockyou.txt"
+    # hashAlgr, fileHash, fileDict = argv[1], argv[2], argv[3]
+    hashAlgr = "sha1"
+    fileHash = "hash.txt"
+    fileDict = "rockyou.txt"
 except IndexError:
-	print("Error: Arguments!")
-	raise SystemExit
+    print("Error: Arguments!")
+    raise SystemExit
 
 with open(fileHash) as file:
-	hashFunc = file.read()
-	hashFunc = hashFunc.replace('\n', '')
+    hashFunc = file.read()
+    hashFunc = hashFunc.replace('\n', '')
 
 
 def generator(string):
-	for word in string:
-		passwd = word.replace('\n', '')
-	if encrypt(passwd) == hashFunc:
-		yield line + "\n[True]: " + passwd
-		return
-	else:
-		yield "[False]: " + passwd
+    for word in string:
+        passwd = word.replace('\n', '')
+    if encrypt(passwd) == hashFunc:
+        yield line + "\n[True]: " + passwd
+        return
+    else:
+        yield "[False]: " + passwd
 
 
 def encrypt(string):
-	passwd = string.encode()
-	if hashAlgr == "sha1":
-		signature = sha1(passwd).hexdigest()
-	#	elif hashAlgr == "sha256":
-	#		signature = sha256(passwd).hexdigest()
-	#	elif hashAlgr == "sha512":
-	#		signature = sha512(passwd).hexdigest()
-	#	elif hashAlgr == "md5":
-	#		signature = md5(passwd).hexdigest()
-	else:
-		raise SystemExit
-	return signature
+    passwd = string.encode()
+    if hashAlgr == "sha1":
+        signature = sha1(passwd).hexdigest()
+    #	elif hashAlgr == "sha256":
+    #		signature = sha256(passwd).hexdigest()
+    #	elif hashAlgr == "sha512":
+    #		signature = sha512(passwd).hexdigest()
+    #	elif hashAlgr == "md5":
+    #		signature = md5(passwd).hexdigest()
+    else:
+        raise SystemExit
+    return signature
 
 
 print(line)
 with open(fileDict, errors="ignore") as dictionary:
-	for password in generator(dictionary):
-		print(password)
+    for password in generator(dictionary):
+        print(password)
 print(line)
