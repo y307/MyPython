@@ -14,6 +14,7 @@ from hashlib import sha1
 
 line = "----------------------------------"
 
+
 try:
 	# hashAlgr, fileHash, fileDict = argv[1], argv[2], argv[3]
 	hashAlgr = "sha1"
