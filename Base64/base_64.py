@@ -30,6 +30,7 @@ if mode == '-e':
     fout.write(encodedText)
 elif mode == '-d':
     decodeText = fin.read()
+    decodeText = decodeText.replace('\n', '')
     # decode encoded text
     decodedText = base64.b64decode(decodeText)
     ttt = str(decodedText, '')
