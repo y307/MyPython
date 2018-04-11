@@ -8,6 +8,7 @@ fout = open('out.srt', 'wt')
 buf_lines = ['', '', '', '']
 time_line = ''
 num = 0
+num_k = 0
 
 
 def shift_lines():
@@ -48,7 +49,9 @@ for line in fin:
                 time_stop = time_start + 60
             else:
                 time_stop -= 0.5
-            fout.write('{0:d}\n{1:s} --> {2:s}\n{3:s}\n\n'.format(num,
+
+            num_k += 1
+            fout.write('{0:d}\n{1:s} --> {2:s}\n{3:s}\n\n'.format(num_k,
                                                                   sec2time_str(time_start),
                                                                   sec2time_str(time_stop),
                                                                   buf_lines[0]))
