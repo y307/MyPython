@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import time
-
 fin = open('in.srt')
 fout = open('out.srt', 'wt')
 buf_lines = ['', '', '', '']
