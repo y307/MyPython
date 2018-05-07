@@ -23,5 +23,8 @@ def check_digit(aCode):
 
     return res
 
+def coding(aCode):
+
+
 
 print(check_digit('5070600050015'))
