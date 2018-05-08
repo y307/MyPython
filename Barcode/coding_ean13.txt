@@ -1,0 +1,62 @@
+procedure TForm1.Coding(aNum : string; aItemNumb: Byte; aInvisible:Boolean=False);
+var
+	vMatrix: string;
+	vColor: TColor;
+	i: Integer;
+begin
+
+	if aInvisible then
+		vColor:=clWhite
+	else
+		vColor:=clBlack;
+
+	vMatrix:='';
+	if Length(aNum)=13 then
+	begin
+		if not aInvisible then
+		begin
+			vMatrix:=vMatrix+'x0x'; // начало штрих-кода
+			vMatrix:=vMatrix+EAN_izqA[StrToInt(aNum[2])];
+
+			for i:=3 to 7 do
+			begin
+				if CodificaIzq[StrToInt(aNum[1])][i-3]='A' then
+					vMatrix:=vMatrix+EAN_izqA[StrToInt(aNum[i])]
+				else
+					vMatrix:=vMatrix+EAN_izqB[StrToInt(aNum[i])];
+			end;
+
+			vMatrix:=vMatrix+'0x0x0'; // центр штрих-кода
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[8])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[9])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[10])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[11])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[12])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[13])];
+			vMatrix:=vMatrix+'x0x'; // конец штрих-кода
+		end;
+
+		Form1.DrawCode(vMatrix,aItemNumb,aInvisible);
+
+		QRDimS[aItemNumb].Font.Size:=9;
+		QRDimS[aItemNumb].Font.Color:=vColor;
+		QRDimS[aItemNumb].Font.Charset:=RUSSIAN_CHARSET;
+		QRDimS[aItemNumb].Caption:='Серія '+c_UkrString[v_Ser];
+
+		QRDimN[aItemNumb].Font.Size:=9;
+		QRDimN[aItemNumb].Font.Color:=vColor;
+		QRDimN[aItemNumb].Font.Charset:=RUSSIAN_CHARSET;
+		QRDimN[aItemNumb].Caption:='№ '+v_TalonNum;
+
+		QRDimM[aItemNumb].Font.Size:=6;
+		QRDimM[aItemNumb].Font.Color:=vColor;
+		QRDimM[aItemNumb].Font.Charset:=RUSSIAN_CHARSET;
+		QRDimM[aItemNumb].Caption:=v_Month;
+
+		QRDimC[aItemNumb].Font.Size:=9;
+		QRDimC[aItemNumb].Font.Color:=vColor;
+		QRDimC[aItemNumb].Font.Charset:=RUSSIAN_CHARSET;
+		QRDimC[aItemNumb].Caption:=aNum;
+
+	end;
+end;
