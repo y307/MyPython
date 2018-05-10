@@ -13,8 +13,11 @@ y = int(canvas_height / 8)
 cnv.create_line(0, y, canvas_width, y, fill="#476042")
 
 y = int(canvas_height / 4)
-x=20
-cnv.create_rectangle(x,y,x+10,y+30,fill='black')
-
+x1=20
+x2=23
+cnv.create_rectangle(x1, y, x2, y+30, fill='black')
+x1=x2
+x2+=3
+cnv.create_rectangle(x1, y, x2, y+30, fill='white')
 
 mainloop()
