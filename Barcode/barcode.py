@@ -4,9 +4,9 @@
 # barcode EAN-13
 
 from tkinter import *
-# import Image, ImageDraw
 from PIL import Image, ImageDraw
 import os
+import subprocess
 
 #####################################################################
 
@@ -118,8 +118,23 @@ cnv.update()
 
 image1.save('my_barcode.jpg')
 
-# cnv.postscript(file='barcode.ps', colormode='mono')
+cnv.postscript(file='tmp.ps', colormode='color')
+
+process = subprocess.Popen(['ps2pdf', 'tmp.ps', 'result.pdf'], shell=True)
+process = subprocess.ps(['ps2pdf', 'tmp.ps', 'result.pdf'], shell=True)
+process.wait()
+
+
 # os.system('convert ' + 'barcode.ps' + ' ' + 'barcode.png')
-os.system('lpr my_barcode.jpg')
+# os.system('lpr my_barcode.jpg')
+
+# p = os.popen('lpr', 'w')
+# inf=open('barcode.ps')
+# for line in inf:
+    # p.write(line)
+# for #
+
+# p.close()
+# inf.close()
 
 mainloop()
