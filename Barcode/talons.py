@@ -6,18 +6,23 @@ from PyQt5.QtWidgets import QWidget, QApplication, QPushButton
 # import PyQt5.Qt
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
-# from Barcode.cyrillic4pdf import *
-import Barcode.cyrillic4pdf as cyr
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+# import Barcode.cyrillic4pdf as cyr
+
+
+# font_file = '/usr/share/fonts/truetype/msttcorefonts/arial.ttf'
 
 
 def print_talons():
     from reportlab.lib.units import mm
+    pdfmetrics.registerFont(TTFont('Arial', 'Arial.ttf'))
     cnv = canvas.Canvas("Talons.pdf", pagesize=A4)
     # move the origin up and to the left
-    cnv.translate(0, 285 * mm)
+    cnv.translate(0, 280 * mm)
     # define a large font
-    font_name = cyr.set_cyr_font()
-    cnv.setFont(font_name, 10)
+    # font_name = cyr.set_cyr_font()
+    cnv.setFont('Arial', 20)
     cnv.drawString(0, 0, 'Серия "Д" № 123456')
     # choose some colors
     # draw some lines
