@@ -2,6 +2,9 @@
   <dictionary name="aly">
     <words>
       <w>acode</w>
+      <w>cyrenc</w>
+      <w>fname</w>
+      <w>reportlab</w>
       <w>summ</w>
     </words>
   </dictionary>

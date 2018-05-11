@@ -6,29 +6,23 @@ from PyQt5.QtWidgets import QWidget, QApplication, QPushButton
 # import PyQt5.Qt
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
+# from Barcode.cyrillic4pdf import *
+import Barcode.cyrillic4pdf as cyr
 
 
 def print_talons():
     from reportlab.lib.units import mm
     cnv = canvas.Canvas("Talons.pdf", pagesize=A4)
     # move the origin up and to the left
-    cnv.translate(mm, mm)
+    cnv.translate(0, 285 * mm)
     # define a large font
-    cnv.setFont("Helvetica", 14)
+    font_name = cyr.set_cyr_font()
+    cnv.setFont(font_name, 10)
+    cnv.drawString(0, 0, 'Серия "Д" № 123456')
     # choose some colors
-    cnv.setStrokeColorRGB(0.2, 0.5, 0.3)
-    cnv.setFillColorRGB(1, 0, 1)
     # draw some lines
-    cnv.line(0, 0, 0, 43 * mm)
-    cnv.line(0, 0, 1 * mm, 0)
-    # draw a rectangle
-    cnv.rect(5 * mm, 5 * mm, 25.4 * mm, 38 * mm, fill=1)
-    # make text go straight up
-    cnv.rotate(90)
-    # change color
-    cnv.setFillColorRGB(0, 0, 0.77)
-    # say hello (note after rotate the y coord needs to be negative!)
-    cnv.drawString(10 * mm, -mm, "Hello World")
+    # cnv.line(0, 0, 0, 43 * mm)
+    # cnv.line(0, 0, 1 * mm, 0)
     cnv.showPage()
     cnv.save()
 
