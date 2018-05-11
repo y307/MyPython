@@ -19,10 +19,10 @@ frame1.grid(row=0, column=0, columnspan=3)
 
 lbl_sheets = Label(frame1, text=' Листов:')
 lbl_sheets.pack()
-#lbl_sheets.grid(column=0, row=0)
+# lbl_sheets.grid(column=0, row=0)
 txt_sheets = Entry(frame1, width=3)
 txt_sheets.pack()
-#txt_sheets.grid(column=1, row=0)
+# txt_sheets.grid(column=1, row=0)
 
 '''
 lbl_start = Label(root, text='   Начальн.№:')
