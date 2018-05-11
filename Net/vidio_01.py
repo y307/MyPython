@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import urllib.request
 
 dwn_link = 'https://class.coursera.org/textanalytics-001/lecture/download.mp4?lecture_id=73'

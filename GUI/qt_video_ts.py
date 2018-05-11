@@ -3,7 +3,7 @@
 # http://python-3.ru/page/dialogs-in-pyqt5
 
 import sys
-from PyQt5.QtWidgets import (QMainWindow, QLineEdit, QAction, QFileDialog, QApplication)
+from PyQt5.QtWidgets import (QMainWindow, QLineEdit, QLabel, QPushButton, QAction, QFileDialog, QApplication)
 from PyQt5.QtGui import QIcon
 
 
@@ -17,9 +17,19 @@ class VideoTs(QMainWindow):
         self.setWindowTitle('Download')
         self.setGeometry(300, 300, 350, 300)
 
-        line_edit = QLineEdit(self)
-        line_edit.move(0, 0)
-        line_edit.size(10,100)
+        lbl = QLabel('URL:', self)
+        lbl.move(0, 0)
+        lbl.adjustSize()
+
+        line_edit = QLineEdit(self)  # type:
+        line_edit.move(lbl.width(), 0)
+
+        lbl.resize(lbl.width(), line_edit.height())
+        line_edit.resize(self.width() - lbl.width(), line_edit.height())
+
+        btn = QPushButton('m3u8-файл', self)
+        btn.move(lbl.width(), lbl.height() + 2)
+
 
         self.show()
 
