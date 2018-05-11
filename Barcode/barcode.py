@@ -3,10 +3,10 @@
 
 # barcode EAN-13
 
+import os
 from tkinter import *
 from PIL import Image, ImageDraw
-import os
-import subprocess
+
 
 #####################################################################
 
@@ -31,7 +31,7 @@ def check_digit(acode):
     return res
 
 
-######################################################################
+# def check_digit #
 
 
 def coding(acode):
@@ -56,7 +56,7 @@ def coding(acode):
 
         # выбор списка кодирования
         if pos in range(1, 7):
-            ch_of_code = code_AB[pos-1]
+            ch_of_code = code_AB[pos - 1]
         else:
             ch_of_code = 'C'
 
@@ -74,10 +74,7 @@ def coding(acode):
         code_full += code_of_digit
     # end of for
 
-    return code_full + '101'
-
-
-###############################################
+    return code_full + '101'  # def coding #
 
 
 text_code = coding('2123456050011')
@@ -98,19 +95,18 @@ cnv.create_rectangle(1, 1, canvas_width, canvas_height, )
 image1 = Image.new("RGB", (canvas_width, canvas_height), 'white')
 draw = ImageDraw.Draw(image1)
 
-
 y1 = int(canvas_height / 4)
 y2 = y1 + 30
 x = 20
 
-end_of_rng=len(text_code)
+end_of_rng = len(text_code)
 
 for i in range(0, end_of_rng):
     # print(i)
     if text_code[i] == '1':
         # cnv.create_rectangle(x1, y, x1, y + 30, fill='black')
         cnv.create_line(x, y1, x, y2, fill='black')
-        draw.line([x, y1, x, y2,], 'black')
+        draw.line([x, y1, x, y2], 'black')
     x += 1
 # for #
 
@@ -118,20 +114,19 @@ cnv.update()
 
 image1.save('my_barcode.jpg')
 
-cnv.postscript(file='tmp.ps', colormode='color')
-
-process = subprocess.Popen(['ps2pdf', 'tmp.ps', 'result.pdf'], shell=True)
-process = subprocess.ps(['ps2pdf', 'tmp.ps', 'result.pdf'], shell=True)
-process.wait()
+# os.system('lpr my_barcode.jpg')
+os.star
+# cnv.postscript(file='tmp.ps', colormode='color')
+# process = subprocess.Popen(['ps2pdf', 'tmp.ps', 'result.pdf'], shell=True)
+# process.wait()
 
 
 # os.system('convert ' + 'barcode.ps' + ' ' + 'barcode.png')
 # os.system('lpr my_barcode.jpg')
-
 # p = os.popen('lpr', 'w')
 # inf=open('barcode.ps')
 # for line in inf:
-    # p.write(line)
+# p.write(line)
 # for #
 
 # p.close()
