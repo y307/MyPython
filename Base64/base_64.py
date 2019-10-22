@@ -4,6 +4,7 @@
 import base64
 import sys
 
+
 # разбор аргументов коммандной строки
 #if __name__=="__main__":
 #    if len(sys.argv) != 3:
