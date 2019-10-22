@@ -6,7 +6,7 @@ GR_HATCH - штриховка
   e-mail: kpolyakov@mail.ru
   web: http://kpolyakov.spb.ru
 """
-from graph import *
+from graph import rectangle, line, run
 
 x1 = 100; y1 = 100
 x2 = 300; y2 = 200
