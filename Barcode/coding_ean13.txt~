@@ -1,15 +1,15 @@
 
 const
-	EAN_A:array[0..9]of PChar=
+	EAN_izqA:array[0..9]of PChar=
 			('0001101','0011001','0010011','0111101','0100011',
 				'0110001','0101111','0111011','0110111','0001011');
-	EAN_B:array[0..9]of PChar=
+	EAN_izqB:array[0..9]of PChar=
 			('0100111','0110011','0011011','0100001','0011101',
 				'0111001','0000101','0010001','0001001','0010111');
-	EAN_C:array[0..9]of PChar=
+	EAN_dcha:array[0..9]of PChar=
 			('1110010','1100110','1101100','1000010','1011100',
 				'1001110','1010000','1000100','1001000','1110100');
-	EAN_AB:array[0..9]of PChar=
+	CodificaIzq:array[0..9]of PChar=
 			('AAAAA','ABABB','ABBAB','ABBBA','BAABB',
 				'BBAAB','BBBAA','BABAB','BABBA','BBABA');
 
@@ -31,35 +31,24 @@ begin
 	begin
 		if not aInvisible then
 		begin
-			// начало последовательности
 			vMatrix:=vMatrix+'x0x'; // начало штрих-кода
-			// 2-я цифра берется из 
-			vMatrix:=vMatrix+EAN_A[StrToInt(aNum[2])]; 
-			
-			// 3-я - 7-я цифры
+			vMatrix:=vMatrix+EAN_izqA[StrToInt(aNum[2])];
+
 			for i:=3 to 7 do
 			begin
-				// выбираем символ из EAN_AB - по 1-й цифре выбираем элемент
-				// по i-й цифре выбираем символ строки
-				// по полученной букве выбираем последовательность либо из
-				// массива EAN_A либо измассива EAN_B и добавляем к общей последоаптельности 
-				if EAN_AB[StrToInt(aNum[1])][i-3]='A' then
-					vMatrix:=vMatrix+EAN_A[StrToInt(aNum[i])]
+				if CodificaIzq[StrToInt(aNum[1])][i-3]='A' then
+					vMatrix:=vMatrix+EAN_izqA[StrToInt(aNum[i])]
 				else
-					vMatrix:=vMatrix+EAN_B[StrToInt(aNum[i])];
+					vMatrix:=vMatrix+EAN_izqB[StrToInt(aNum[i])];
 			end;
-			
-			// разделитель прямой и обратной кодировки
+
 			vMatrix:=vMatrix+'0x0x0'; // центр штрих-кода
-			// для цифр 8-й - 13-й для получения последовательностей
-			// кодировки используется массив EAN_C
-			vMatrix:=vMatrix+EAN_C[StrToInt(aNum[8])];
-			vMatrix:=vMatrix+EAN_C[StrToInt(aNum[9])];
-			vMatrix:=vMatrix+EAN_C[StrToInt(aNum[10])];
-			vMatrix:=vMatrix+EAN_C[StrToInt(aNum[11])];
-			vMatrix:=vMatrix+EAN_C[StrToInt(aNum[12])];
-			vMatrix:=vMatrix+EAN_C[StrToInt(aNum[13])];
-			// конец последовательности
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[8])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[9])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[10])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[11])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[12])];
+			vMatrix:=vMatrix+EAN_dcha[StrToInt(aNum[13])];
 			vMatrix:=vMatrix+'x0x'; // конец штрих-кода
 		end;
 
