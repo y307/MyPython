@@ -6,19 +6,19 @@
     их координаты на холсте. Точкой отсчета является верхний левый угол (x=0, y=0)
 """
 
-from tkinter import *
+from tkinter import Canvas
 
 root = Tk()
+root.title("Печать талонов")
+root.geometry("800x600")
 
-c = Canvas(root, width=800, height=600, bg='white')
+c = Canvas(root, width=800, height=600, bg="white")
 c.pack()
 
 c.create_line(10, 10, 50, 60)
 
-c.create_line(50, 160, 50, 80, fill='green',
-              width=5, arrow=LAST, dash=(10, 2),
-              activefill='lightgreen',
-              arrowshape="10 20 10")
+c.create_line(50, 160, 50, 80, fill="green", width=5, arrow=LAST, dash=(10, 2),
+              activefill="lightgreen", arrowshape="10 20 10")
 
 c.create_rectangle(80, 10, 120, 60)
 
