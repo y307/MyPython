@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1e424821-e3ad-4143-ad99-b64e2a025ea8" name="Default" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/tkinter/example_canvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/tkinter/example_canvas.py" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/Barcode2/coding_ean13.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Barcode2/pain_code_ean13.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/tkinter/example_canvas_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Barcode/canvas_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Barcode/canvas_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Barcode/coding_ean13.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Barcode/coding_ean13.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/tkinter/example_canvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/tkinter/example_canvas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MFTI/.spyproject/workspace.ini" beforeDir="false" afterPath="$PROJECT_DIR$/MFTI/.spyproject/workspace.ini" afterDir="false" />
+>>>>>>> c6961b843349aba895db6931e8df35465bbe7a5c
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,19 +30,26 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>_font</find>
-      <find>Helvetica</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1SZlyeCGyZH1CgEx03rSJ3Rpi5z" />
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="20" />
+    <option name="y" value="137" />
+    <option name="width" value="1400" />
+    <option name="height" value="860" />
+  </component>
+  <component name="ProjectId" id="1SbO0IWJBW1bKzgNNgwxZFQqQvR" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+>>>>>>> c6961b843349aba895db6931e8df35465bbe7a5c
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -50,7 +69,11 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.example_canvas">
+=======
+  <component name="RunManager" selected="Python.coding_ean13">
+>>>>>>> c6961b843349aba895db6931e8df35465bbe7a5c
     <configuration name="barcode" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MyPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -72,7 +95,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="example_canvas" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration name="coding_ean13" type="PythonConfigurationType" factoryName="Python" temporary="true">
+>>>>>>> c6961b843349aba895db6931e8df35465bbe7a5c
       <module name="MyPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -80,11 +107,19 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+<<<<<<< HEAD
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GUI/tkinter" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GUI/tkinter/example_canvas.py" />
+=======
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Barcode2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Barcode2/coding_ean13.py" />
+>>>>>>> c6961b843349aba895db6931e8df35465bbe7a5c
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,11 +196,19 @@
       <item itemvalue="Python.reportlab_test_&amp;_cyr" />
       <item itemvalue="Python.talons" />
       <item itemvalue="Python.reportlab_test_cyr" />
+<<<<<<< HEAD
       <item itemvalue="Python.example_canvas" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.example_canvas" />
+=======
+      <item itemvalue="Python.coding_ean13" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.coding_ean13" />
+>>>>>>> c6961b843349aba895db6931e8df35465bbe7a5c
         <item itemvalue="Python.talons" />
         <item itemvalue="Python.reportlab_test_&amp;_cyr" />
         <item itemvalue="Python.reportlab_test_cyr" />
