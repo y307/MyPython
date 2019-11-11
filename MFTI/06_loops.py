@@ -8,9 +8,10 @@ GR_LOOPS - циклы с кругами
 """
 from graph import *
 
-def row ( y ):
-  x = 40
-  for i in range(5):
+
+def row(y):
+    x = 40
+    for i in range(5):
     circle(x, y, 20)
     x += 60
     
