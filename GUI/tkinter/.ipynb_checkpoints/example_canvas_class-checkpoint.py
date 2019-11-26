@@ -5,6 +5,7 @@ from tkinter import Tk, Canvas, Frame, BOTH, CHORD, ARC, CENTER, SE, LAST
 
 
 class MainWindow(Frame):
+
     def __init__(self, parent):
         Frame.__init__(self, parent)
         self.parent = parent
@@ -61,4 +62,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    

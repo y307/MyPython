@@ -11,4 +11,3 @@ combo.current(5)  # set the selected item
 combo.grid(column=0, row=0)
 
 window.mainloop()
-
