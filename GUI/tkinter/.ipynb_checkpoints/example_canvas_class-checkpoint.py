@@ -23,7 +23,12 @@ class MainWindow(Frame):
 
         canvas.create_line(10, 10, 50, 60)
 
+<<<<<<< HEAD
         canvas.create_line(50, 160, 50, 80, fill='green', width=5, arrow=LAST, dash=(10, 2), activefill='lightgreen', arrowshape="10 20 10")
+=======
+        canvas.create_line(50, 160, 50, 80, fill='green', width=5, arrow=LAST, dash=(10, 2),
+                           activefill='lightgreen', arrowshape="10 20 10")
+>>>>>>> a3bd4ab2a80e24bde38ec582e036d44e371f8bb0
 
         canvas.create_rectangle(80, 10, 120, 60)
 

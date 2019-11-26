@@ -6,7 +6,7 @@
     их координаты на холсте. Точкой отсчета является верхний левый угол (x=0, y=0)
 """
 
-from tkinter import *
+from tkinter import Canvas
 
 root = Tk()
 root.title("Печать талонов")
@@ -17,11 +17,13 @@ c.pack()
 
 c.create_line(10, 10, 50, 60)
 
+<<<<<<< HEAD
 c.create_line(50, 160, 50, 80, fill="green", width=5, arrow=LAST, dash=(10, 2),
               activefill="lightgreen", arrowshape="10 20 10")
-
+=======
 c.create_line(50, 160, 50, 80, fill='green', width=5, arrow=LAST, dash=(10, 2),
               activefill='lightgreen', arrowshape="10 20 10")
+>>>>>>> c6961b843349aba895db6931e8df35465bbe7a5c
 
 c.create_rectangle(80, 10, 120, 60)
 
@@ -51,4 +53,3 @@ c.create_text(200, 250, text="Hello World,\nPython\nand Tk", justify=CENTER, fon
 c.create_text(300, 300, text="About this", anchor=SE, fill="grey")
 
 root.mainloop()
-
