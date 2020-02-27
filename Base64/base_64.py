@@ -1,47 +1,58 @@
-#!/usr/bin/python3.6
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python3
 
 import base64
 import sys
 
 
+# mode = "-d"
+# fin_name = "in.txt"
+# fin_name = ''
+# mode = ''
+
+def work_with_file():
+    fin = open(fin_name)
+    # fout_list = fin_name.split('.')
+
+    if mode == '-e':
+        fout_name = fin_name.replace('.', '.e.')
+        fout = open(fout_name, "wb")
+        # read text from file
+        encodeText = fin.read()
+        # convert text to bytes
+        byte_encode=encodeText.encode()  # default parameter 'utf8'
+        # encode text
+        encodedText = base64.b64encode(byte_encode)
+        print(encodedText)
+        # write encoded text to file
+        fout.write(encodedText)
+    elif mode == '-d':
+        fout_name = fin_name.replace('.', '.d.')
+        decodeText = fin.read()
+        decodeText = decodeText.replace('\n', '')
+        # decode encoded text
+        decodedText = base64.b64decode(decodeText)
+        fout = open(fout_name, 'wb')
+        #ttt = str(decodedText, '')
+        #print(ttt)
+        # write decoded text to file
+        fout.write(str(decodedText).encode('latin1'))
+
+    # close opened files
+
+    fin.close()
+    fout.close()
+
+
+
 # разбор аргументов коммандной строки
-#if __name__=="__main__":
-#    if len(sys.argv) != 3:
-#        print("Введите команду в формате: base_64.py -[e|d] <путь_к_файлу>")
-#        sys.exit(1)
-#    else:
-        #mode = sys.argv[1]
-        #fin_name = sys.argv[2]
-mode = "-d"
-fin_name = "in.txt"
+if __name__ == "__main__":
+   if len(sys.argv) != 3:
+       print("Введите команду в формате: base_64.py -[e|d] <путь_к_файлу>")
+       sys.exit(1)
+   else:
+       mode = sys.argv[1]
+       fin_name = sys.argv[2]
 
-fin = open(fin_name)
-fout = open("out.txt", "wb")
-
-if mode == '-e':
-    # read text from file
-    encodeText = fin.read()
-    # convert text to bytes
-    byte_encode=encodeText.encode()  # default parameter 'utf8'
-    # encode text
-    encodedText = base64.b64encode(byte_encode)
-    print(encodedText)
-    # write encoded text to file
-    fout.write(encodedText)
-elif mode == '-d':
-    decodeText = fin.read()
-    decodeText = decodeText.replace('\n', '')
-    # decode encoded text
-    decodedText = base64.b64decode(decodeText)
-    ttt = str(decodedText, '')
-    print(ttt)
-    # write decoded text to file
-    # fout.write(str(decodedText).encode('latin1'))
-
-# close opened files
-fout.close()
-fin.close()
 
 
 # Режим открытия файла
