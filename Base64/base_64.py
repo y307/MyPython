@@ -47,7 +47,7 @@ def work_with_file():
 # разбор аргументов коммандной строки
 if __name__ == "__main__":
    if len(sys.argv) != 3:
-       print("Введите команду в формате: base_64.py -[e|d] <путь_к_файлу>")
+       print("Введите команду в формате: python base_64.py -[e|d] <путь_к_файлу>")
        sys.exit(1)
    else:
        mode = sys.argv[1]
