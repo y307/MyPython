@@ -31,12 +31,10 @@ while pos7 < len(res):
     pos7 += 24
     for i in range(3):
         pos8 = i * 8
-        ch_code = int(buf[pos8:pos8+7])
-        new_text = new_text + chr(ch_code)
+        ch_code = int((buf[pos8:pos8+7])
 
-print(new_text)
+#print(new_text)
 
 
 # print(format(16,'07b'))
 # print('{:07b}'.format(16))
-
